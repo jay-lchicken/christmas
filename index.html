@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Cheer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ffefba, #ffffff);
+            color: #2b2b2b;
+            text-align: center;
+        }
+
+        header {
+            background: #c0392b;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        .main-content {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .decorations {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .decorations img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .decorations img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: #34495e;
+            color: white;
+            padding: 10px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .snowflakes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .snowflakes span {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fall 5s linear infinite;
+            font-size: 1.5em;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translate(-50%, -10px); opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { transform: translate(-50%, 100vh); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Merry Christmas!</h1>
+    <p>Wishing you joy, peace, and happiness this holiday season!</p>
+</header>
+
+<div class="main-content">
+    <p>Welcome to our Christmas celebration page! We hope your holidays are filled with love, laughter, and magical moments. Click on the buttons to see the things drop</p>
+
+    <div class="decorations">
+        <img src="https://cdn-icons-png.flaticon.com/512/6290/6290111.png" alt="Christmas Tree" onclick="dropImage(this)">
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/18/10/snowflake-153108_640.png" alt="Snowflake" onclick="dropImage(this)">
+        <img src="https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/1024px/1f514.png" alt="Bell" onclick="dropImage(this)">
+    </div>
+</div>
+
+
+<script>
+    function dropImage(img) {
+        const newImg = img.cloneNode();
+        newImg.style.position = 'absolute';
+        newImg.style.top = '-100px';
+        newImg.style.left = Math.random() * window.innerWidth + 'px';
+        newImg.style.transition = 'top 2s linear';
+        newImg.style.transition = 'top 2s linear';
+        newImg.style.width = '50px';
+        newImg.style.height = '50px';
+        document.body.appendChild(newImg);
+        setTimeout(() => {
+            newImg.style.top = '100vh';
+        }, 0);
+    }
+</script>
+
+</body>
+</html>
